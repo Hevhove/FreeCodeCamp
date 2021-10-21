@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 23 11:44:17 2021
+
+@author: Hendrik
+"""
+
+import random
+from copy import deepcopy
+
+class Hat:
+    
+    def __init__(self,**kwargs):
+        assert len(kwargs) != 0
+        self.contents = []
+        for k,v in kwargs.items():
+            for i in range(v):
+                self.contents.append(str(k))
+        
+    def draw(self,n):
+        self.draws = []
+        if n <= len(self.contents):
+            for i in range(n):
+                draw = self.contents.pop(random.randint(0,len(self.contents)-1))
+                self.draws.append(draw)
+        else:
+            for i in range(len(self.contents)):
+                draw = self.contents.pop(random.randint(0,len(self.contents)-1))
+                self.draws.append(draw)
+        return self.draws
+    
+    
+# experiment function
+def experiment(hat,expected_balls,num_balls_drawn,num_experiments):
+    
+    #make a copy of the hat initial state
+    #hat_init = deepcopy(hat)
+    
+    # amount of times we hit the expected_balls requirement
+    successes = 0
+    # make a number of experiments, and in each experiment, draw at random from the hat
+    for i in range(num_experiments):
+        hat_init = deepcopy(hat)
+        draws = hat.draw(num_balls_drawn)
+        # check if we can fit the dict "expected balls" inside the list draws
+        drawdict = {}
+        
+        for i in draws:
+            drawdict[i] = drawdict.get(i,0) + 1
+            
+        
+        if all((k in drawdict and drawdict[k]>=v) for k,v in expected_balls.items()) == True:
+            successes += 1
+        
+        #reset the contents of hat to the initial state
+        hat = hat_init
+            
+    return successes/num_experiments
+
+hat = Hat(black=6, red=4, green=3)
+probability = experiment(hat=hat, expected_balls={"red":2,"green":1}, num_balls_drawn=5, num_experiments=2000)

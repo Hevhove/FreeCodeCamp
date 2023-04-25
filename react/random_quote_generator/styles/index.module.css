@@ -1,0 +1,90 @@
+.layout-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	min-height: 100vh;
+    min-width: 100%;
+    background-size: cover;
+}
+
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 45rem;
+}
+
+.quote-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1c1c;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #bbb;
+    position: relative;
+    text-align: left;
+}
+
+.author-box {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.quote {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+.author {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    color: #ccc;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.btn-new-quote {
+    width: 200px;
+    background-image: linear-gradient(to right, #ff1c8e, #ff8cba);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: normal;
+    transition: all 0.2s ease;
+}
+
+.btn-new-quote:hover {
+    background-color: #ff5;
+    box-shadow: 0 0 5px 2px rgba(233, 10, 122, 0.4);
+}
+
+.btn-new-quote:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5);
+}
+
+.btn-new-quote:active {
+    transform: scale(0.95);
+}

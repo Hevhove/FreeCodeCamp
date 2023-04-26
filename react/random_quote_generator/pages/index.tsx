@@ -1,6 +1,8 @@
 import Layout from '../components/Layout';
 import Quote from '../components/Quote';
 import Author from '../components/Author';
+import Signature from '../components/Signature';
+import ShareButton from '../components/ShareButton';
 import { QuoteType } from '../types/types';
 import { useState, useEffect } from 'react';
 import styles from '../styles/index.module.css';
@@ -25,6 +27,7 @@ export default function Home() {
     "/images/surf.jpg",
     "/images/tiger.jpg",
     ]
+    const [quoteKey, setQuoteKey] = useState(0);
 
   async function fetchQuote() {
     setIsLoading(true);
@@ -35,6 +38,8 @@ export default function Home() {
 
     // change background
     setBackground((background + 1) % backgrounds.length);
+
+    setQuoteKey(quoteKey + 1);
   }
 
   useEffect(() => {
@@ -43,10 +48,11 @@ export default function Home() {
 
   return (
     <Layout bgImage={backgrounds[background]}>
+        <ShareButton quote={quote?.content} author={quote?.author}/>
         <div className={styles['quote-container']}>
           {quote && (
             <div className={styles['quote-box']}>
-              <Quote text={quote.content} />
+              <Quote key={quoteKey} text={quote.content} />
               <div className={styles['author-box']} style={{textAlign: "left"}}>
                 <Author name={quote.author} />
               </div>
@@ -62,6 +68,7 @@ export default function Home() {
             </button>
           </div>
         </div>
+        <Signature />
     </Layout>
   );
 }

@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default function Layout({ children, bgImage }: LayoutProps) {
   return (
-    <div className={styles['layout-container']} style={{ backgroundImage: `url(${bgImage})`, transition: 'all 0.5s ease-out',}}>
+    <div className={styles['layout-container']} style={{ backgroundImage: `url(${bgImage})`, transition: 'all 1s ease-out',}}>
       <Head>
         <title>Random Quote Generator</title>
         <link rel="icon" href="/favicon.ico" />

@@ -2,7 +2,7 @@
 As part of my React/NextJS/Tailwind learning curve, I have created this simple random quote generator app. I know it ain't much, but getting to know all these different frameworks and how they work together was quite a challenge. Gone are the days of C/C++ implementing a server from scratch.
 
 ## Demo
-![Demo](extras/random_quote_generator.gif)
+![Demo](demo/random_quote_generator.gif)
 
 ## Features
 - Random quote fetched from Quotable API

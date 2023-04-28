@@ -1,9 +1,10 @@
 import Layout from "../components/Layout"
-import MyTextArea from "../components/MyTextArea"
 import ResultBox from "../components/ResultBox"
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
 import { defaultStr } from "../types/types"
 import { marked } from 'marked'
+import dynamic from "next/dynamic";
+const DynamicTextArea = dynamic(() => import("../components/MyTextArea"), { ssr: false });
 
 export default function Home() {
     const [inputStr, setInputStr] = useState(defaultStr);
@@ -17,7 +18,7 @@ export default function Home() {
 
     return (
         <Layout>
-            <MyTextArea defaultValue={inputStr} onInputChange={handleInputChange} />
+            <DynamicTextArea defaultValue={inputStr} onInputChange={handleInputChange} />
             <ResultBox markdownContent={outputStr}/>
         </Layout>
     )

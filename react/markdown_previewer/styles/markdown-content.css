@@ -64,6 +64,7 @@
 
 .markdown-content code {
     font-family: monospace;
+    color: rgb(255, 243, 223);
     background-color: #323232;
     padding: 0.25rem;
     border-radius: 0.25rem;

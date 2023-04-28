@@ -1,6 +1,3 @@
-import { useEffect, useState, ChangeEvent } from 'react'
-import { defaultStr } from  "../types/types"
-
 interface TextChangeProps {
     defaultValue: string;
     onInputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
